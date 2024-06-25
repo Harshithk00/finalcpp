@@ -27,6 +27,7 @@ app.use(session({
   saveUninitialized: true,
   cookie: { maxAge: 86400000, httpOnly: true },
   store: new MemoryStore({ checkPeriod: 86400000 }),
+  secure:false
 }));
 
 app.use(passport.initialize());
