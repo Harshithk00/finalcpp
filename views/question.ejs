@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/question.css" class="css">
+    <title>Quiz</title>
+    <style>
+      .options label {
+      font-size: 1.5rem;
+      font-weight: bold;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      }
+    </style>
+</head>
+<body>
+
+
+  <dialog id="startDialog" style="border-radius: 10px; border-color: #28273d;">
+    <form method="dialog">
+
+        <h1>Click on the button to START QUIZ</h1>
+        <menu style="display: flex;align-items: center; justify-content: center;">
+            <button style="background:#A5A4F4; padding: 15px;
+            border-radius: 10px;" 
+             id="start-quiz-button">
+                START
+            </button>
+        </menu>
+
+    </form>
+</dialog>
+
+
+    <div class="timercont" >
+        <div class="head" >C++ QUIZ</div>
+        <div class="timer">
+          <h3 id="time" style="min-height:25px;min-width: 45px;display: flex;align-items: center;justify-content: center;" ></h3>
+          
+          
+        </div>
+    </div>
+    
+
+  
+
+<form action="/quiz" method="post" id="theForm">
+
+
+  
+
+
+
+    <% questions.forEach((question, index) => { %>
+      <div>
+        <div class="question">
+            <h3><%= question.question %></h3>
+        </div>
+        
+        <% question.options.forEach(option => { %>
+          <div class="options" value="<%= option %>">
+            <input  type="radio" id="<%= option %>" name="question<%= index %>" value="<%= option %>">
+            <label id="labeloption" for="<%= option %>"  style="font-size:1.5rem;font-weight: bold;" ><%= option %></label>
+          </div>
+        <% }); %>
+      </div>
+    <% }); %>
+    <div style="display: flex;align-items: center;">
+    <button id="end-quiz-button" type="submit" class="buttons" style="cursor: pointer;">Submit</button>
+    </div>
+  </form>
+    
+
+</body>
+<script>
+
+const dialog = document.getElementById('startDialog');
+const closeDialogButton = document.getElementById('start-quiz-button');
+let notend = true;
+let warning =0;
+let nonscreenwarn =0
+
+document.addEventListener('DOMContentLoaded', function(){
+ 
+        
+      
+        
+      dialog.showModal();
+        
+
+      
+
+  function handleVisibilityChange() {
+    if(notend){
+      
+      if (document.hidden) {
+      if(warning<3){
+          warning++
+        }
+
+      alert(`${warning} warning (Auto submit on 2 warning)`)
+
+        if (warning===2){
+            // alert("submit")
+            document.getElementById("theForm").submit();
+        }}
+    
+        
+      // console.log(warning);
+    }}
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
+
+        // closeDialogButton.addEventListener("click", 
+        //     function(){
+        //         dialog.close();
+        //     }
+        // )
+
+    })
+    
+
+
+
+// document.addEventListener("DOMContentLoaded",startTimer);
+
+let time = 120;
+const timerElement = document.getElementById('time');
+    
+  function startTimer() {
+    const timerInterval = setInterval(() => {
+        let minutes = Math.floor(time / 60);
+        let seconds = time % 60;
+
+        
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+
+        timerElement.textContent = `${minutes}:${seconds}`;
+
+        if (time > 0) { 
+            time--;
+        } 
+        else{
+            clearInterval(timerInterval);
+            
+            document.getElementById("theForm").submit();
+        }
+    }, 1000);
+  }
+
+
+document.getElementById('start-quiz-button').addEventListener('click', function() {
+    startQuiz();
+});
+
+document.getElementById('end-quiz-button').addEventListener('click', function() {
+    notend = false;
+    endQuiz();
+});
+
+function startQuiz() {
+  if(warning===0){
+    startTimer();
+  }
+    
+
+    enterFullScreen(document.documentElement);
+
+    
+    document.addEventListener('fullscreenchange', onFullScreenChange);
+    document.addEventListener('webkitfullscreenchange', onFullScreenChange);
+    document.addEventListener('mozfullscreenchange', onFullScreenChange);
+    document.addEventListener('msfullscreenchange', onFullScreenChange);
+    dialog.close();
+}
+
+function endQuiz() {
+    
+    exitFullScreen();
+    document.removeEventListener('fullscreenchange', onFullScreenChange);
+    document.removeEventListener('webkitfullscreenchange', onFullScreenChange);
+    document.removeEventListener('mozfullscreenchange', onFullScreenChange);
+    document.removeEventListener('msfullscreenchange', onFullScreenChange);
+
+    
+}
+
+function enterFullScreen(element) {
+    if (element.requestFullscreen) {
+        element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) { 
+        element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) { 
+        element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) { 
+        element.msRequestFullscreen();
+    }
+}
+
+function exitFullScreen() {
+    if (document.exitFullscreen) {
+        document.exitFullscreen();
+    } else if (document.mozCancelFullScreen) { 
+        document.mozCancelFullScreen();
+    } else if (document.webkitExitFullscreen) { 
+        document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { 
+        document.msExitFullscreen();
+    }
+}
+
+function onFullScreenChange() {
+    if (!document.fullscreenElement && !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) {
+        nonscreenwarn++
+        alert(`You have exited fullscreen mode ${nonscreenwarn} times. Press on the button to re-enter otherwise answer will be submitted on 2 warning`);
+        dialog.showModal();
+        
+
+        if(nonscreenwarn >= 2)
+        {
+          if(!document.fullscreenElement){
+          document.getElementById("theForm").submit();
+          notend = false;
+          }
+        }
+
+        enterFullScreen(document.documentElement);
+        
+    }
+
+
+    
+    
+    
+  }
+
+  
+
+</script>
+</html>

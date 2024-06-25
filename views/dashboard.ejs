@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/dashboard.css" class="css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inika:wght@400;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Elymaic&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Elymaic&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="master">
+<div class="headcont">
+    <div  class="head">Quiz</div>
+    
+    <div  class="rulesbutton"><button id="openRuleDialog" type="submit" class="rulesbuttonn t" >Rules</button></div>
+    
+    <dialog id="rulesDialog">
+        <form method="dialog">
+
+            <div class="r">Rules:-</div>
+            <div class="rules">1.Time Limit: Each quiz must be completed within the specified time limit. 
+            Ensure you manage your time efficiently to answer all questions.</div>
+            <div class="rules">2.No External Help: Do not use external resources or assistance.
+            This includes books, notes, online searches, or other people.</div>
+            <div class="rules">3.Single Attempt: Each participant is allowed only one attempt per quiz.  
+            Make sure your answers are final before submitting.</div>
+            <div class="rules">4.Honesty and Integrity: Maintain academic honesty.
+            Any form of cheating or dishonesty will result in disqualification and
+            potential further consequences.</div>
+
+                
+
+
+            <menu style="display: flex; justify-content: center;">
+                <button style="background:#A5A4F4; padding: 15px;
+                border-radius: 10px;" 
+                 id="closeRuleDialog">
+                    Close
+                </button>
+            </menu>
+
+        </form>
+    </dialog>
+    
+</div>
+<form action="/logout" method="post" class="logout">
+<div > <button type="submit" class="logoutt t">Log Out</button></div>
+</form>
+    </div>  
+    <hr class="styled-hr-arrow">
+    <div class="cards">
+    <div class="card card1">
+        <div class="cardimg">
+            <a href="../quiz"><img class="img"  src="/images/codeimg.jpg">
+            </a></div>
+        <div class="cardinfo">
+            <div class="cardinfohead">C++ Quiz</div>
+            <div class="cardinfobrief">unit-3 and unit-4</div>
+            <div class="cardinfobrief" style="font-size: 1.2rem;color: rgb(141, 3, 3);"><%= errtext1 %></div>
+        </div>
+    </div>
+ 
+
+
+    </div>
+    <hr class="styled-hr-arrow1">
+    <div class="footer"><a class="footer" href="https://teammagma.site">©Teammagma</a></div>
+    <div class="developed">Developed by Harshit,Himalay,Hema,deeksha</div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function(){
+        const dialog = document.getElementById('rulesDialog');
+        const openDialogButton = document.getElementById('openRuleDialog');
+        const closeDialogButton = document.getElementById('closeRuleDialog');
+
+        openDialogButton.addEventListener("click", 
+            function(){
+                dialog.showModal();
+            }
+        )
+
+
+        closeDialogButton.addEventListener("click", 
+            function(){
+                dialog.close();
+            }
+        )
+
+    })
+    document.addEventListener('dblclick', (event) => {
+        document.body.requestFullscreen();
+      })
+</script>
+</html>

@@ -1,0 +1,87 @@
+body{
+    background-color: #E1E1FD;
+    height:200vh
+}
+.timercont{
+display:flex;
+justify-content: space-between;
+}
+.timer {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    background-color: #f6fdfd;
+    padding: 0px 10px;
+    margin-top: 15px;
+    margin-right:2%;
+    border-radius: 15px;
+  }
+.question{
+    margin:2% auto;
+    font-size: 1.5rem;
+    background-color:   #A5A4F4;
+    width: 95%;
+    min-height: 20vh;   ;
+    /* min-height:20vh; */
+    max-height: 90vh;
+    border-radius: 20px;
+    padding: 1% 1%;
+}
+.head {
+    font-size: 50px;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+
+#labeloption{
+  width:100%;
+}
+
+dialog::backdrop{
+  backdrop-filter: blur(10px);
+}
+
+
+.options{
+
+height: 9vh;   
+
+width:96%;
+background-color: #C4E4FF;
+margin:2% auto;
+border-radius: 20px;
+padding: 1vw;
+font-size: 1.2rem;
+ /* Ensure content stays within the box */
+ transition: height 0.3s, width 0.3s;
+box-shadow: 6px 4px 26px 0px rgba(0, 0, 0, 0.5);
+}
+.options:hover {
+    width: 98%;
+   height: 10vh;
+    
+  }
+
+.buttons{
+    background-color: #A5A4F4;
+    width: 25vw;
+    height: 10vh;
+    margin: 2% auto;
+    border-radius: 20px;
+    padding: 1%;
+    font-size: 2rem;
+    text-align: center;
+     transition: height 0.3s,width 0.3s;
+}
+.buttons:hover {
+    width: 26vw;
+   height: 11vh;
+    
+  }
+.buttoncontainer{
+    display: flex;
+}
+
+#startDialog{
+  z-index: 2;
+}

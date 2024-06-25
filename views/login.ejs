@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/styles.css" >
+</head>
+<body>
+    
+        <section>
+            <div class="loginpage">
+              
+                <div class="quizlogo">
+                    <img width="8%" height="10%" margin="10%" src="/images/quiz_logo.png">
+    
+                </div>
+                <div class="logincontainer">
+                    <div class="login">
+
+                        <div class="loginhead">Login</div>
+                        <form id="myForm" action = "/api/login" method="post">
+                            <div class="loginemail"><input type="text" name="usn" placeholder="Enter your USN" class="search-input" id='emailin'></input>
+                            </div>
+                        
+                        <div class="loginemail"><input type="password" name="password" placeholder="Enter your password" class="search-input" id='passwordin'></input>
+                        </form>
+                        </div>
+                        <div class="miss">
+                         <div class="buttons">
+                            <form action="./signup" method="get">
+                            <div class="newacc"><button type="submit" class="search-" >create a new account</button></div>
+                        </form>
+                        
+                            <div class="forgot"><button type="submit" class="search-">Forgot password</button></div>
+                         
+                         </div>
+                         <div class="submit">
+                            <button id="submitButton" type="submit" class="search-button" >Submit</button>
+                         </div>
+    
+                        </div>
+    
+    
+    
+                    </div>
+    
+                    <img class="girlimg" width="50%" height="750vh"   src="/images/girl.jpg"></img>
+                </div>
+    
+            </div>
+    
+        </section>
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('myForm');
+            const submitButton = document.getElementById('submitButton');
+
+            submitButton.addEventListener('click', () => {
+                form.submit();
+            });
+        });
+        </script>
+
+</body>
+</html>

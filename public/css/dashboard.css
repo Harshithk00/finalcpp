@@ -1,0 +1,157 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 20px ;
+}
+body{
+    background-color: #A5A4F4;
+    font-family: "Inika", serif;
+    font-size: 80px;
+}
+button{
+    all: unset;
+}
+.t{
+    font-size: 40px;
+}
+.head{
+    font-size: 80px;
+}
+.rulesbutton{
+    margin-top: 30px;
+  
+}
+.t{
+    cursor: pointer;
+    transition: color 0.3s, transform 0.3s;
+}
+.t:hover {
+    color: #C4E4FF; /* Darker green background on hover */
+    transform: scale(1.1); /* Slightly increase the size on hover */
+  }
+.headcont{
+    width:85%;
+
+    display: flex;
+    justify-content:space-between;
+  
+}
+.logout{
+    display: inline;
+    width: 15%;
+    margin-left: 7%;
+    margin-top: 30px;
+}
+.master{
+    display: flex;
+}
+.head{
+    margin-left: 3%;
+}
+.styled-hr-arrow{
+    width: 90%;
+    border: 0;
+    height: 5px;
+    background: linear-gradient(to right, #38598b, #E1E1FD);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    border-radius: 20px;
+}
+.styled-hr-arrow1{
+    width: 90%;
+    border: 0;
+    height: 5px;
+    background: linear-gradient(to right, #E1E1FD, #38598b);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    margin: 20px auto;
+    border-radius: 20px;
+}
+.cards{
+display: flex;
+
+
+}
+.card{
+    border-radius: 10px;
+    background-color: #C4E4FF;
+width: 25vw;
+height: 60vh;
+
+margin: 5% 7%;
+box-shadow: 10px 5px 25px 3px  rgba(0, 0, 0, 0.5);
+
+transition: width 0.5s, height 0.5s;
+
+
+}
+.card:hover {
+    width: 27vw;
+    height: 64vh;
+  }
+.footer{
+    font-family:"Oswald", sans-serif  ;
+text-align: center;
+font-size: 19px;
+    color:rgb(228, 220, 220);
+}
+.developed{
+    font-family: "Inika", serif;
+    margin-top: 1%;
+    font-size: 15px;
+    text-align: center;
+}
+.img{
+    width: 100%;
+    height:50%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px; 
+}
+.cardinfohead{
+    margin: 2% 0% 5% 5%;
+}
+.cardinfobrief{
+    margin: 2% 0% 5% 5%;
+}
+
+
+dialog{
+    border: 0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    left: 12%;
+    right: 12%;
+    
+    top: 20%;
+    bottom: 20%;
+    
+}
+
+dialog::backdrop{
+    backdrop-filter: blur(10px);
+}
+
+button{
+    cursor: pointer;
+}
+
+/* body{
+    background-color: #E1E1FD;
+} */
+.r{
+    margin: 2% 3%;
+    font-size: 3vw;
+  
+}
+.rules{
+    font-size: 1rem;
+    margin: 3% 3%;
+}
+
+.closeRuleDialog{
+    background-color: #A5A4F4;
+    padding: auto;
+    border-radius: 3px;
+}
