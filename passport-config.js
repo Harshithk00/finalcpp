@@ -78,6 +78,6 @@ passport.serializeUser((user, cb) => {
 
 passport.deserializeUser((user, cb) => {
   cb(null, user);
-});
+}); 
 
 export default passport;

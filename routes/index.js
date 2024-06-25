@@ -30,6 +30,7 @@ router.get('/dashboard', async(req, res) => {
     const users = req.user;
     
     res.cookie('users', users, { maxAge: 24 * 60 * 60 * 1000});
+    
     res.render("dashboard",{errtext1:req.flash('errtext1') || null});
   } else {
     res.redirect("/");

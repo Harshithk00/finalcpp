@@ -35,11 +35,11 @@ router.post('/login', passport.authenticate('locallogin2', {
   failureRedirect: "/",
   failureFlash: true
 }),
-(req, res) => {
+async(req, res) => {
     
     const users = req.user;
     
-    res.cookie('users', users, { maxAge: 24 * 60 * 60 * 1000});
+    await res.cookie('users', users, { maxAge: 24 * 60 * 60 * 1000});
     res.redirect('/dashboard');
   }
 );

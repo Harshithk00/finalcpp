@@ -15,14 +15,18 @@ function zeroPad(num) {
 router.get('/quiz', async (req, res) => {
   try {
     
-    let currentUser = req.cookies.users.name;
-    let currentUserSlice3 = currentUser.slice(-3);
-    let currentUserUse = zeroPad(currentUserSlice3);
 
-    if (req.isAuthenticated()) {
-      const checkattempt = await db.query("SELECT attemptedquiz1 FROM users WHERE usn = $1", [req.user.usn]);
+    let currentUser = req.cookies.users.name
+    let usn = req.cookies.users.usn
+    let currentUserSlice3 = currentUser.slice(-3)
+    let currentUserUse = zeroPad(currentUserSlice3)
+    
+    console.log(currentUser!=null)
+
+    if (currentUser!=null) {
+      const checkattempt = await db.query("SELECT attemptedquiz1 FROM users WHERE usn = $1", [usn]);
       if (checkattempt.rows[0].attemptedquiz1 == 1) {
-        req.flash("errtext1", "You have already attempted the quiz");
+        req.flash("errtext1", "Already attempted the test");
         res.redirect("/dashboard");
       } else {
         if (currentUserUse % 2 == 0) {
@@ -42,13 +46,15 @@ router.get('/quiz', async (req, res) => {
 
 router.post('/quiz', async (req, res) => {
   try {
-    if (req.isAuthenticated()) {
+    let currentUser = req.cookies.users.name
+    if (currentUser!=null) {
       const userAnswers = req.body;
       let score = 0;
 
-      let currentUser = req.cookies.users.name;
+      
       let currentUserSlice3 = currentUser.slice(-3);
       let currentUserUse = zeroPad(currentUserSlice3);
+      let usn = req.cookies.users.usn
 
       if (currentUserUse % 2 == 0) {
         questionset2.forEach((question, index) => {
@@ -66,8 +72,8 @@ router.post('/quiz', async (req, res) => {
         });
       }
 
-      await db.query("UPDATE users SET attemptedquiz1 = 1 WHERE usn= $1;", [req.user.usn]);
-      await db.query("UPDATE users SET correctanswer= $1 WHERE usn= $2;", [score, req.user.usn]);
+      await db.query("UPDATE users SET attemptedquiz1 = 1 WHERE usn= $1;", [usn]);
+      await db.query("UPDATE users SET correctanswer= $1 WHERE usn= $2;", [score, usn]);
 
       res.redirect('/quiz2');
     } else {
@@ -81,13 +87,19 @@ router.post('/quiz', async (req, res) => {
 
 router.get("/quiz2", async (req, res) => {
   try {
+    
     let currentUser = req.cookies.users.name;
+    
+    if (currentUser!=null) {
+        
+    let usn = req.cookies.users.usn
     let currentUserSlice3 = currentUser.slice(-3);
     let currentUserUse = zeroPad(currentUserSlice3);
-    const checkattempt = await db.query("SELECT attemptedquiz2 FROM users WHERE usn = $1", [currentUser]);
+    const checkattempt2 = await db.query("SELECT attemptedquiz2 FROM users WHERE usn = $1", [usn]);
+    
+    console.log(checkattempt2)
 
-    if (req.isAuthenticated()) {
-      if (checkattempt == 1) {
+      if (checkattempt2.rows[0].attemptedquiz2== 1) {
         req.flash("errtext1", "Already attempted the test");
         res.redirect("/dashboard");
       } else {
@@ -108,8 +120,12 @@ router.get("/quiz2", async (req, res) => {
 
 router.post('/quiz2', async (req, res) => {
   try {
-    if (req.isAuthenticated()) {
-      const usn = req.cookies.users.name;
+    const currentUser = req.cookies.users.name;
+    
+
+    if (currentUser!=null) {
+        const usn = req.cookies.users.usn 
+      
       const answers = req.body.answers;
 
       questionset2written.forEach(async (question, index) => {
