@@ -10,7 +10,7 @@ app.use(cookieParser());
 
 passport.use(
   'locallogin',
-  new Strategy({ usernameField: "usn" }, async function verify(usn, password, cb) {
+  new Strategy({ usernameField: "usn" }, async function verify(usn,password, cb) {
     try {
       const result = await db.query("SELECT * FROM users WHERE usn = $1 ", [usn]);
       if (result.rows.length > 0) {

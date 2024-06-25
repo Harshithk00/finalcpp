@@ -36,6 +36,7 @@ router.get('/quiz', async (req, res) => {
         }
       }
     } else {
+        res.send(currentUser)
       res.redirect('/');
     }
   } catch (e) {

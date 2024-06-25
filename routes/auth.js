@@ -39,7 +39,7 @@ async(req, res) => {
     
     const users = req.user;
     
-    await res.cookie('users', users, { maxAge: 24 * 60 * 60 * 1000});
+    res.cookie('users', users, { maxAge: 24 * 60 * 60 * 1000});
     res.redirect('/dashboard');
   }
 );
