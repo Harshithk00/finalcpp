@@ -34,7 +34,14 @@ router.post('/login', passport.authenticate('locallogin2', {
   successRedirect: "/dashboard",
   failureRedirect: "/",
   failureFlash: true
-})
+}),
+(req, res) => {
+    
+    const users = req.user;
+    
+    res.cookie('users', users, { maxAge: 24 * 60 * 60 * 1000});
+    res.redirect('/dashboard');
+  }
 );
 
 export default router;
