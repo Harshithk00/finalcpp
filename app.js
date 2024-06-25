@@ -50,8 +50,8 @@ app.use(flash());
      app.use('/dashboard', indexRoutes);
      app.use('/logout', indexRoutes);
      
-     app.use('/api', authRoutes);
-     app.use('/api', authRoutes);
+     app.use('/', authRoutes);
+     app.use('/', authRoutes);
 
  
      app.use('/', quizRoutes);

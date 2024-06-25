@@ -21,7 +21,7 @@ router.get('/quiz', async (req, res) => {
     let currentUserSlice3 = currentUser.slice(-3)
     let currentUserUse = zeroPad(currentUserSlice3)
     
-    console.log(currentUser!=null)
+    
 
     if (currentUser!=null) {
       const checkattempt = await db.query("SELECT attemptedquiz1 FROM users WHERE usn = $1", [usn]);
@@ -37,13 +37,12 @@ router.get('/quiz', async (req, res) => {
       }
     } else {
         res.send(currentUser)
-    //   res.redirect('/');
-    res.send(currentUser)
+      res.redirect('/');
     }
   } catch (e) {
     console.log(e);
     res.send(e)
-    // res.redirect("/");
+    res.redirect("/");
   }
 });
 
@@ -100,7 +99,7 @@ router.get("/quiz2", async (req, res) => {
     let currentUserUse = zeroPad(currentUserSlice3);
     const checkattempt2 = await db.query("SELECT attemptedquiz2 FROM users WHERE usn = $1", [usn]);
     
-    console.log(checkattempt2)
+    
 
       if (checkattempt2.rows[0].attemptedquiz2== 1) {
         req.flash("errtext1", "Already attempted the test");
