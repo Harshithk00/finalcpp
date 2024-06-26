@@ -1,85 +1,129 @@
 const questionset1 = [{
-    question: "Which of the following data type is supported by c++ but not in c?",
-    options: ["Int","Bool","Double","Float"],
-    answer: "Bool"
+    question: `Which of the following classes are used for file handling in C++?
+                i) fstream ii) ifstream iii) ofstream iv) ostream`,
+    options: ["i) and ii)","i) and iv)","i), ii), and iii)","all of the bove"],
+    answer: "i), ii), and iii)"
 },
 {
-    question: "Identify the correct syntax for declaring arrays in c++",
-    options: ["Array arr[10]", "Array{10}", "Int arr[10]", "Int arr"],
-    answer: "Int arr[10]"
+    question: "Which of the following mode is used to open a file in binary mode?",
+    options: ["ios::bin", "ios::binary", "ios::bins", "None of the above"],
+    answer: "ios::binary"
 },
 {
-    question: "Which of the following is address of operator",
-    options: ["*", "&", "||", "&&"],
-    answer: "&"
+    question: "What is the use of ios::trunc mode?",
+    options: ["To open a file in input mode", "To open a file in output mode", "To truncate an existing file to half", "To truncate an existing file to zero"],
+    answer: "To truncate an existing file to zero"
 },
 {
-    question: "Identify the correct example for a pre increment operator",
-    options: ["++N", "N++", "--n", "N--"],
-    answer: "++N"
+    question: "Which of the following is the default mode of the opening using the ofstream class?",
+    options: ["ios::in", "ios::out", "ios::app", "ios::trunc"],
+    answer: "ios::out"
 },
 {
-    question: "Identify the scope of resolution operator",
-    options: [":", "::", "?", "None"],
-    answer: "::"
+    question: "What is the return type open() method?",
+    options: ["int", "char", "bool", "float"],
+    answer: "bool"
 },
-
+{
+    question: "Which of the following is the default mode of the opening using the ifstream class?",
+    options: ["ios::in ", "ios::out ", "ios::app", "ios::trunc"],
+    answer: "ios::in "
+},
+{
+    question: "Which operator is used to insert the data into file?",
+    options: [">>", "<<", "<", "None of the above"],
+    answer: "<<"
+},
+{
+    question: "Which is correct syntax?",
+    options: ["myfile:open ('example.bin', ios::out);", "myfile.open ('example.bin', ios::out);", "myfile::open ('example.bin', ios::out);", "myfile.open ('example.bin', ios:out);"],
+    answer: "myfile.open ('example.bin', ios::out);"
+},
+{
+    question: "For reading the data from external source to the program we use ________ stream",
+    options: ["Input stream", "output stream", "IO stream", "None of the above"],
+    answer: "Input stream"
+},
 
 ]
 
 
 const questionset2 = [
     {
-        question: "Choose the correct default return value of function",
-        options: ["Int", "Void", "Char", "Float"],
-        answer: "Int"
+        question: "Which of the following syntax is correct to open a file using constructors",
+        options: ["a) ofstream EntryFile('FewLines.dat');", "ifstream ifs();", "ofstream:EntryFile('FewLines.txt');", "ofstream:EntryFile('FewLines.txt');"],
+        answer: "a) ofstream EntryFile('FewLines.dat');"
     },
     {
-        question: "When can an inline function be expanded",
-        options: ["Runtime", "Compile time", "Never gets expanded", "All the above"],
-        answer: "Compile time"
+        question: "Which operator is used to extract the data into file?",
+        options: [">>", "<<", "<", "None of the above"],
+        answer: ">>"
     },
     {
-        question: "Identify the correct function from which the execution of C++ program starts",
-        options: ["New()", "Start()", "Pow()", "Main()"],
-        answer: "Main()"
+        question: "Which of the following syntax is correct to close a file",
+        options: ["ifs.close(“file1.txt”);", "ifs::close(“file1.txt”);", "ifs.close();", "ifs:close(“file1.txt”);"],
+        answer: "ifs.close();"
     },
     {
-        question: "The constant in C++ are also known as",
-        options: ["Preprocessor", "Literals", "Const", "None"],
-        answer: "Literals"
-    }
+        question: "Which of the following mode is used to open a file in binary mode?",
+        options: ["ios::bin", "ios::binary", "ios::bins", "None of the above"],
+        answer: "ios::binary"
+    },
+    {
+        question: "What is the use of ios::trunc mode?",
+        options: ["To open a file in input mode", "To open a file in output mode", "To truncate an existing file to half", "To truncate an existing file to zero"],
+        answer: "To truncate an existing file to zero"
+    },
+    {
+        question: "What is the return type open() method?",
+        options: ["int", "char", "bool", "float"],
+        answer: "bool"
+    },
+    {
+        question: "Which of the following is the default mode of the opening using the ifstream class?",
+        options: ["ios::in ", "ios::out ", " ios::app", "ios::trunc"],
+        answer: "ios::in "
+    },
+    {
+        question: "Which is correct syntax?",
+        options: ["myfile:open ('example.bin', ios::out);", "myfile.open ('example.bin', ios::out);", "myfile::open ('example.bin', ios::out);", "myfile.open ('example.bin', ios:out);"],
+        answer: "myfile.open ('example.bin', ios::out);"
+    },
+    {
+        question: "For writing the data from program to the external source, we use ________ stream",
+        options: ["Input stream", "output stream", "IO stream", "None of the above"],
+        answer: "output stream"
+    }
+
 ]
+
 
 
 const questionset1written = [
     {
-        question: "What is the number of parameters that a default constructor requires?"
+        question: "Write a C++ code to transfer the data(your name, USN and dept) entering from the keyboard to the text file"
     },
     {
-        question: "What is the Hello"
+        question: "Write a C++ code to read the data (your name, USN and dept) which is present in binary file and display it on console window. "
     },
     {
-        question: "What is the Hello"
-    },
-    {
-        question: "What is the Hello"
+        question: "What is the command to append a string to the existing file?"
     }
+    
 ]
 
 const questionset2written = [
     {
-        question: "What is the number of parameters that a default constructor requires?"
+        question: "Write a C++ code to transfer the data(your name, USN and dept) from the text file to a program and to display it on the console window."
     },
     {
-        question: "What is the Hello"
+        question: "Write a C++ code to transfer the data (your name, USN and dept) entering from the keyboard to the binary file"
     },
     {
-        question: "What is the Hello"
-    },
-    {
-        question: "What is the Hello"
+        question: "Which are the two ways to open a file in file handling streams?"
     }
+    
 ]
+
 
 export {questionset1, questionset2, questionset1written, questionset2written}
