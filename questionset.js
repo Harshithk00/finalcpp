@@ -26,7 +26,7 @@ const questionset1 = [{
 },
 {
     question: "Which of the following is the default mode of the opening using the ifstream class?",
-    options: ["ios::in ", "ios::out ", "ios::app", "ios::trunc"],
+    options: ["ios::in ", "ios::out ", "ios::app ", "ios::trunc "],
     answer: "ios::in "
 },
 {
